@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "wrobocon2025"
+version = "0.1.0"
+description = "WroboCon Online 2025 Workshop"
+authors = ["JerzyGlowacki <jerzy.glowacki@niceproject.eu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+robotframework = "^7.0"
+robotframework-browser = "^18.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
