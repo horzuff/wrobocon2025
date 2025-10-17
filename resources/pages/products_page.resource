@@ -2,6 +2,7 @@
 Library            Browser
 Library            String
 Library            Collections
+Variables          locators${/}products_page.yaml
 
 *** Keywords ***
 
@@ -9,7 +10,8 @@ Add item to cart
     [Arguments]    ${item name}
     ${lowercase itemname}=    String.Convert To Lower Case    ${item name}
     ${dash separated itemname}=    String.Replace String    ${lowercase itemname}    ${SPACE}    -
-    VAR    ${add item locator}    id=add-to-cart-${dash separated itemname}
+    #the following step is not mandatory, but I like to include it to make it more explicit what happens here
+    ${add item locator}=    BuiltIn.Replace Variables   ${add item to cart by name}
     Browser.Click    ${add item locator}
 
 Get current sorting
@@ -23,20 +25,19 @@ Get current sorting
     ELSE IF    "${current sorting order}" == "Price (high to low)"
         RETURN    hilo
     END
-    
 
 Validate sorting
     [Arguments]    ${sorting type}
     @{items}=    BuiltIn.Create List
     IF    '${sorting type}' in ['az', 'za']
-        @{item elements}=    Browser.Get Elements    xpath=//div[contains(@class,"inventory_item_name")]
+        @{item elements}=    Browser.Get Elements    ${item name label}
         FOR    ${element}    IN    @{item elements}
             ${item name}=    Browser.Get Text    ${element}
             ${item name}=    String.Convert To Lower Case    ${item name}
             Collections.Append To List    ${items}    ${item name}
         END
     ELSE IF    '${sorting type}' in ['lohi', 'hilo']
-        @{item elements}=    Browser.Get Elements    xpath=//div[contains(@class,"inventory_item_price")]
+        @{item elements}=    Browser.Get Elements    ${item price label}
         FOR    ${element}    IN    @{item elements}
             ${item name}=    Browser.Get Text    ${element}
             ${item name}=    String.Convert To Lower Case    ${item name}

@@ -12,7 +12,7 @@ Resource           pages${/}header_area.resource
 
 *** Test Cases ***
 Sauce labs test 1
-    browser_management.Set up browser    headless=False    viewport={"width": 1360, "height": 766}
+    browser_management.Open sauce labs demo site    headless=False    viewport={"width": 1360, "height": 766}
     @{logins}=    login_page.Get available logins
     ${password}=    login_page.Get password
     VAR    ${login}    ${logins}[0]    scope=SUITE
@@ -29,7 +29,7 @@ Sauce labs test 1
     Browser.Close Browser
 
 Sauce Labs test 2
-    browser_management.Set up browser    headless=False    viewport={"width": 1360, "height": 766}
+    browser_management.Open sauce labs demo site    headless=False    viewport={"width": 1360, "height": 766}
     @{logins}=    login_page.Get available logins
     ${password}=    login_page.Get password
     VAR    ${login}    ${logins}[0]    scope=SUITE
@@ -37,3 +37,4 @@ Sauce Labs test 2
     ${current sorting}=    products_page.Get current sorting
     products_page.Validate sorting    ${current sorting}
     header_area.Logout
+    Browser.Close Browser
