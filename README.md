@@ -10,7 +10,7 @@ Now let's initialize our project and go through setup as prompted
 
 `poetry init`
 
-Then when asked for main dependencies add robotframework and robotframework-browser in latest versions.
+Then when asked for main dependencies add robotframework and robotframework-browser in latest versions. We can also add pyyaml to be able to handle .yaml variable files
 
 Now lets install all dependencies, we're not going to publish this 
 `poetry install -no-root`

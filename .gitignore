@@ -1,3 +1,8 @@
+results/*
+results
+browser/*
+browser
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
