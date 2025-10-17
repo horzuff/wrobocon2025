@@ -1,1 +1,3 @@
---outputdir .\results
+--outputdir results
+--pythonpath resources
+tests/
