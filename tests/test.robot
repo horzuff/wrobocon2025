@@ -1,5 +1,6 @@
 *** Settings ***
 Library            Browser
+Library            OperatingSystem
 Library            String
 Library            Collections
 Resource           utils${/}browser_management.resource
@@ -34,7 +35,7 @@ Sauce Labs test 2
     ${password}=    login_page.Get password
     VAR    ${login}    ${logins}[0]    scope=SUITE
     login_page.Login    ${login}    ${password}
-    ${current sorting}=    products_page.Get current sorting
-    products_page.Validate sorting    ${current sorting}
+    products_page.Set sorting    za
+    products_page.Validate sorting    za
     header_area.Logout
     Browser.Close Browser
