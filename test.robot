@@ -4,9 +4,9 @@ Library            String
 Library            Collections
 
 *** Test Cases ***
-Sauce labs test 1
+Purchasing
     Browser.New Browser    chromium    False    slowMo=0:00:00.5
-    Browser.New Context    viewport={"width": 1366, "height": 768}
+    Browser.New Context    viewport={"width": 1920, "height": 1080}
     Browser.New Page    url=https://www.saucedemo.com/
     ${login field text}=    Browser.Get Text    id=login_credentials
     ${password field text}=    Browser.Get Text    css=div.login_password
@@ -14,7 +14,7 @@ Sauce labs test 1
     ${passwords}=    String.Fetch from right   ${password field text}    :
     @{logins}=    String.Split String    ${logins}
     @{passwords}=    String.Split String   ${passwords}
-    VAR    ${login}    ${logins}[0]    scope=SUITE
+    VAR    ${login}    ${logins}[2]    scope=SUITE
     VAR    ${password}    ${passwords}[0]    scope=SUITE
     Browser.Fill Text    xpath=//input[@name='user-name' and @id='user-name']    ${login}
     Browser.Fill Secret    id=password    $password
@@ -33,9 +33,9 @@ Sauce labs test 1
     Browser.Click    id=logout_sidebar_link
     Browser.Close Browser
 
-Sauce Labs test 2
+Sorting    
     Browser.New Browser    chromium    False    slowMo=0:00:00.5
-    Browser.New Context    viewport={"width": 1366, "height": 768}
+    Browser.New Context    viewport={"width": 1920, "height": 1080}
     Browser.New Page    url=https://www.saucedemo.com/
     Browser.Fill Text    xpath=//input[@name='user-name' and @id='user-name']    ${login}
     Browser.Fill Secret    id=password    $password
