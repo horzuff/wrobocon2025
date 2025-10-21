@@ -13,11 +13,12 @@ Now let's initialize our project and go through setup as prompted
 
 Then when asked for main dependencies add robotframework and robotframework-browser in latest versions. We can also add pyyaml to be able to handle .yaml variable files
 
-Now lets install all dependencies, we're not going to publish this 
-`poetry install -no-root`
+Now lets install all dependencies, we're not going to publish this so we'll use the -no-root option
+
+`poetry install --no-root`
 
 Then we need to initialize our browser environment
 
-`rfbrowser -init`
+`rfbrowser init`
 
-And now we should be ready to start our testing.
+And now we should be ready to start our testing, but just to make things easier let's also create a robot arguments file and add the outputdir and loglevel options.
