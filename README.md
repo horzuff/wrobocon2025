@@ -17,6 +17,6 @@ Now lets install all dependencies, we're not going to publish this so we'll use 
 
 Then we need to initialize our browser environment
 
-`rfbrowser -init`
+`rfbrowser init`
 
 And now we should be ready to start our testing, but just to make things easier let's also create a robot arguments file and add the outputdir and loglevel options.
