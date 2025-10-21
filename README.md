@@ -1,4 +1,5 @@
 I assume You already have python installed and are using windows. The first step will be to install poetry and create a new project with it. We'll be using poetry, even though we won't be publishing anything, because it sometimes helps with avoiding corporate policies regarding repositories like npm etc.
+
 ```python
 python -m venv .venv
 .venv/scripts/Activate.ps1
