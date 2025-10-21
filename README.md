@@ -19,4 +19,4 @@ Then we need to initialize our browser environment
 
 `rfbrowser -init`
 
-And now we should be ready to start our testing, but just to make things easier let's also create a robot arguments file.
+And now we should be ready to start our testing, but just to make things easier let's also create a robot arguments file and add the outputdir and loglevel options.
