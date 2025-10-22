@@ -1,7 +1,7 @@
 *** Settings ***
 Library            Browser
 Library            OperatingSystem
-Resource           utils\browser_management.resource
+Resource           utils/browser_management.resource
 
 *** Test Cases ***
 
@@ -29,10 +29,10 @@ Download with saveAs
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
     ${href}=    Browser.Get Property    ${downloads}[1]    href
     ${filename}=    Browser.Get Text    ${downloads}[1]
-    ${file}=    Browser.Download    ${href}    saveAs=${OUTPUT_DIR}\${filename}
-    OperatingSystem.File Should Exist    ${OUTPUT_DIR}\${filename}
-    OperatingSystem.File Should Not Be Empty    ${OUTPUT_DIR}\${filename}
-    VAR    ${test file}    ${OUTPUT_DIR}\${filename}    scope=SUITE
+    ${file}=    Browser.Download    ${href}    saveAs=${OUTPUT_DIR}/${filename}
+    OperatingSystem.File Should Exist    ${OUTPUT_DIR}/${filename}
+    OperatingSystem.File Should Not Be Empty    ${OUTPUT_DIR}/${filename}
+    VAR    ${test file}    ${OUTPUT_DIR}/${filename}    scope=SUITE
 
 Download with promise
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
@@ -48,11 +48,11 @@ Download with promise and saveas
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
     ${href}=    Browser.Get Property    ${downloads}[3]    href
     ${filename}=    Browser.Get Text    ${downloads}[3]
-    ${download promise}=    Browser.Promise To Wait For Download    ${OUTPUT_DIR}\${filename}
+    ${download promise}=    Browser.Promise To Wait For Download    ${OUTPUT_DIR}/${filename}
     Browser.Click    ${downloads}[3]
     ${file}=    Browser.Wait For    ${download promise}
-    OperatingSystem.File Should Exist    ${OUTPUT_DIR}\${filename}
-    OperatingSystem.File Should Not Be Empty    ${OUTPUT_DIR}\${filename}
+    OperatingSystem.File Should Exist    ${OUTPUT_DIR}/${filename}
+    OperatingSystem.File Should Not Be Empty    ${OUTPUT_DIR}/${filename}
 
 Upload to input
     Browser.Upload File By Selector    id=file-upload    ${test file}

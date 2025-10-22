@@ -1,6 +1,6 @@
 *** Settings ***
 Library            Browser
-Variables          locators\shopping_cart_page.yaml
+Variables          locators/shopping_cart_page.yaml
 
 *** Keywords ***
 Go to checkout

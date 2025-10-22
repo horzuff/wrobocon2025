@@ -1,8 +1,8 @@
 *** Settings ***
 Library            Browser
 Library            String
-Variables          locators\login_page.yaml
-Variables          locators\header_area.yaml
+Variables          locators/login_page.yaml
+Variables          locators/header_area.yaml
 
 *** Keywords ***
 Get available logins

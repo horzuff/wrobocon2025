@@ -1,6 +1,6 @@
 *** Settings ***
 Library            Browser
-Variables          locators\login_page.yaml
+Variables          locators/login_page.yaml
 
 
 *** Keywords ***
