@@ -7,23 +7,23 @@ Variables          locators${/}header_area.yaml
 *** Keywords ***
 
 Go to shopping cart
-    Browser.Click    id=shopping_cart_container
+    Browser.Click    ${loc shopping cart button}
 
 Expand options
-    Browser.Click    id=react-burger-menu-btn
+    Browser.Click    ${loc menu button}
 
 Logout
     Expand options
-    Browser.Click    id=logout_sidebar_link
+    Browser.Click    ${loc logout button}
 
 Open About
     Expand options
-    Browser.Click    id=about_sidebar_link
+    Browser.Click    ${loc about button}
 
 Go to All Items
     Expand options
-    Browser.Click    id=inventory_sidebar_link
+    Browser.Click    ${loc all items button}
 
 Reset App State
     Expand options
-    Browser.Click    id=reset_sidebar_link
+    Browser.Click    ${loc reset app button}

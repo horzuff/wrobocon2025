@@ -1,9 +1,9 @@
-add item to cart by name: id=add-to-cart-${dash separated itemname}
-sorting dropdown: css=span.select_container
-sorting option:
-  lohi: xpath=//option[@value='lohi']
-  hilo: xpath=//option[@value='hilo']
-  az: xpath=//option[@value='az']
-  za: xpath=//option[@value='za']
-item name label: css=div.inventory_item_name
-item price label: css=div.inventory_item_price
+loc add item to cart by name: id=add-to-cart-${dash separated itemname}
+loc sorting dropdown: data-test=product-sort-container
+loc sorting option value:
+  price asc: lohi
+  price desc: hilo
+  A to Z: az
+  Z to A: za
+loc item name label: css=div.inventory_item_name
+loc item price label: css=div.inventory_item_price
