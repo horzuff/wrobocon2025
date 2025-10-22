@@ -8,7 +8,7 @@ Resource           utils/browser_management.resource
 File downloading test
     browser_management.Set up browser    https://the-internet.herokuapp.com/download    headless=False
     Download by href
-    Download with saveAs
+    Download by href with saveAs
     Download with promise
     Download with promise and saveas
 
@@ -25,7 +25,7 @@ Download by href
     ${file}=    Browser.Download    href=${href}
     ${actual_size}=    Get File Size    ${file.saveAs}
 
-Download with saveAs
+Download by href with saveAs
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
     ${href}=    Browser.Get Property    ${downloads}[1]    href
     ${filename}=    Browser.Get Text    ${downloads}[1]
@@ -36,7 +36,6 @@ Download with saveAs
 
 Download with promise
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
-    ${href}=    Browser.Get Property    ${downloads}[2]    href
     ${filename}=    Browser.Get Text    ${downloads}[2]
     ${download promise}=    Browser.Promise To Wait For Download
     Browser.Click    ${downloads}[2]
@@ -46,7 +45,6 @@ Download with promise
 
 Download with promise and saveas
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
-    ${href}=    Browser.Get Property    ${downloads}[3]    href
     ${filename}=    Browser.Get Text    ${downloads}[3]
     ${download promise}=    Browser.Promise To Wait For Download    ${OUTPUT_DIR}/${filename}
     Browser.Click    ${downloads}[3]
@@ -67,3 +65,4 @@ Upload with promise
     Browser.Click    id=file-submit
     Browser.Wait For Elements State    id=uploaded-files    visible
     Browser.Go Back
+
