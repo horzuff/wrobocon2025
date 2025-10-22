@@ -14,7 +14,7 @@ Purchasing
     ${passwords}=    String.Fetch from right   ${password field text}    :
     @{logins}=    String.Split String    ${logins}
     @{passwords}=    String.Split String   ${passwords}
-    VAR    ${login}    ${logins}[2]    scope=SUITE
+    VAR    ${login}    ${logins}[0]    scope=SUITE
     VAR    ${password}    ${passwords}[0]    scope=SUITE
     Browser.Fill Text    xpath=//input[@name='user-name' and @id='user-name']    ${login}
     Browser.Fill Secret    id=password    $password
