@@ -1,6 +1,6 @@
 --outputdir .\results
 --pythonpath .\resources
 --loglevel TRACE
---include debug
---listener debugger
+# --include debug
+# --listener debugger
 tests
