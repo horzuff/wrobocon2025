@@ -38,9 +38,10 @@ Validate sorting
     ELSE IF    '${sorting type}' in ['lohi', 'hilo']
         @{item elements}=    Browser.Get Elements    xpath=//div[contains(@class,"inventory_item_price")]
         FOR    ${element}    IN    @{item elements}
-            ${item name}=    Browser.Get Text    ${element}
-            ${item name}=    String.Convert To Lower Case    ${item name}
-            Collections.Append To List    ${items}    ${item name}
+            ${price}=    Browser.Get Text    ${element}
+            ${price}=    String.Remove String    ${price}   $
+            ${price}=    BuiltIn.Convert To Number    ${price}
+            Collections.Append To List    ${items}    ${price}
         END
     END
     ${actual order items}=    Collections.Copy List    ${items}
