@@ -12,6 +12,10 @@ File downloading test
     Download with promise
     Download with promise and saveas
 
+Cancelled downloads
+    browser_management.Set up browser    https://the-internet.herokuapp.com/download    headless=False
+    Trigger download without waiting for finish
+
 File uploading test
     browser_management.Set up browser    https://the-internet.herokuapp.com/upload    headless=False
     Upload to input
@@ -66,3 +70,12 @@ Upload with promise
     Browser.Wait For Elements State    id=uploaded-files    visible
     Browser.Go Back
 
+Trigger download without waiting for finish
+    @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]
+    ${download promise}=    Browser.Promise To Wait For Download    wait_for_finished=${False}
+    Browser.Click    ${downloads}[4]
+    ${download}=    Browser.Wait For    ${download promise}
+    Browser.Cancel Download    ${download}
+    ${href}=    Browser.Get Property    ${downloads}[5]    href
+    ${second download}=    Browser.Download    href=${href}    wait_for_finished=${False}
+    Browser.Cancel Download    ${second download}
