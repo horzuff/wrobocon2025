@@ -10,6 +10,6 @@ Open sauce labs demo site
     Browser.New Browser    ${browser}    ${headless}    slowMo=${slowMo}
     Browser.New Context    viewport=${viewport}
     Browser.New Page    url=${url}
-    Browser.Wait For Elements State    ${username input}    visible    message=username field didn't load correctly
-    Browser.Wait For Elements State    ${password input}    visible
-    Browser.Wait For Elements State    ${login button}    visible
+    Browser.Wait For Elements State    ${loc username input}    visible    message=username field didn't load correctly
+    Browser.Wait For Elements State    ${loc password input}    visible
+    Browser.Wait For Elements State    ${loc login button}    visible

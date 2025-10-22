@@ -11,7 +11,7 @@ Resource           pages${/}order_overview_page.resource
 Resource           pages${/}header_area.resource
 
 *** Test Cases ***
-Sauce labs test 1
+Purchasing
     browser_management.Open sauce labs demo site    headless=False    viewport={"width": 1360, "height": 766}
     @{logins}=    login_page.Get available logins
     ${password}=    login_page.Get password
@@ -28,13 +28,18 @@ Sauce labs test 1
     header_area.Logout
     Browser.Close Browser
 
-Sauce Labs test 2
+Sorting
     browser_management.Open sauce labs demo site    headless=False    viewport={"width": 1360, "height": 766}
     @{logins}=    login_page.Get available logins
     ${password}=    login_page.Get password
     VAR    ${login}    ${logins}[0]    scope=SUITE
     login_page.Login    ${login}    ${password}
+    products_page.Select sorting option    za
+    ${current sorting}=    products_page.Get current sorting
+    products_page.Validate sorting    ${current sorting}
+    products_page.Select sorting option    hilo
     ${current sorting}=    products_page.Get current sorting
     products_page.Validate sorting    ${current sorting}
     header_area.Logout
     Browser.Close Browser
+

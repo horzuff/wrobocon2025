@@ -1,4 +1,4 @@
-first name input: id=first-name
-last name input: id=last-name
-post code input: id=postal-code
-continue button: id=continue
+loc first name input: id=first-name
+loc last name input: id=last-name
+loc post code input: id=postal-code
+loc continue button: id=continue
