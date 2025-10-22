@@ -5,7 +5,7 @@ Variables          locators${/}login_page.yaml
 
 *** Keywords ***
 Open sauce labs demo site
-    [Arguments]    ${browser}=chromium    ${headless}=True    ${slowMo}=0:00:00.5
+    [Arguments]    ${browser}=chromium    ${headless}=True    ${slowMo}=0:00:01
     ...        ${viewport}={"width": 1920, "height": 1080}    ${url}=https://www.saucedemo.com/
     Browser.New Browser    ${browser}    ${headless}    slowMo=${slowMo}
     Browser.New Context    viewport=${viewport}

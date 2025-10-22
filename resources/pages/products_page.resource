@@ -29,13 +29,15 @@ Get current sorting
 Select sorting option
     [Arguments]    ${sorting type}
     IF    '${sorting type}' == 'az'
-        VAR    ${sorting value}    ${loc sorting option value.A to Z}
+        VAR    ${sorting value}    ${loc sorting option value}[A to Z]
     ELSE IF    '${sorting type}' == 'za'
-        VAR    ${sorting value}    ${loc sorting option value.Z to A}
+        VAR    ${sorting value}    ${loc sorting option value}[Z to A]
     ELSE IF    '${sorting type}' == 'lohi'
-        VAR    ${sorting value}    ${loc sorting option value.price asc}
+        VAR    ${sorting value}    ${loc sorting option value}[price asc]
+        BuiltIn.Sleep    1s
     ELSE IF    '${sorting type}' == 'hilo'
-        VAR    ${sorting value}    ${loc sorting option value.price desc}
+        VAR    ${sorting value}    ${loc sorting option value}[price desc]
+        BuiltIn.Sleep    1s
     END
     Browser.Select Options By    ${loc sorting dropdown}    value    ${sorting value}
 
@@ -52,8 +54,10 @@ Validate sorting
     ELSE IF    '${sorting type}' in ['lohi', 'hilo']
         @{item elements}=    Browser.Get Elements    ${loc item price label}
         FOR    ${element}    IN    @{item elements}
-            ${item name}=    Browser.Get Text    ${element}
-            Collections.Append To List    ${items}    ${item name}
+            ${item price}=    Browser.Get Text    ${element}
+            ${price}=    String.Replace String    ${item price}    $    ${EMPTY}
+            ${price}=    BuiltIn.Convert To Number   ${price}
+            Collections.Append To List    ${items}    ${price}
         END
     END
     ${actual order items}=    Collections.Copy List    ${items}
