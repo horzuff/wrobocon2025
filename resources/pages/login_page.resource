@@ -13,8 +13,8 @@ Get available logins
 
 Get password
     ${password field text}=    Browser.Get Text    ${loc available password field}
-    ${password}=    String.Fetch from right   ${password field text}    :
-    ${password}=    String.Strip string   ${password}
+    ${password}=    String.Fetch from right    ${password field text}    :
+    ${password}=    String.Strip string    ${password}
     RETURN    ${password}
 
 Login
