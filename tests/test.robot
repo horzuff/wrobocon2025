@@ -2,13 +2,13 @@
 Library            Browser
 Library            String
 Library            Collections
-Resource           utils\browser_management.resource
-Resource           pages\login_page.resource
-Resource           pages\products_page.resource
-Resource           pages\shopping_cart_page.resource
-Resource           pages\checkout_page.resource
-Resource           pages\order_overview_page.resource
-Resource           pages\header_area.resource
+Resource           utils/browser_management.resource
+Resource           pages/login_page.resource
+Resource           pages/products_page.resource
+Resource           pages/shopping_cart_page.resource
+Resource           pages/checkout_page.resource
+Resource           pages/order_overview_page.resource
+Resource           pages/header_area.resource
 
 *** Test Cases ***
 Purchasing
