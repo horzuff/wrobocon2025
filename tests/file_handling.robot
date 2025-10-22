@@ -44,7 +44,7 @@ Download with promise
     Browser.Click    ${downloads}[2]
     ${file}=    Browser.Wait For    ${download promise}
     OperatingSystem.File Should Exist      ${file.saveAs}
-    Should Be True    '${file.suggestedFilename}' != ${None}
+    BuiltIn.Should Be True    '${file.suggestedFilename}' != ${None}
 
 Download with promise and saveas
     @{downloads}=    Browser.Get Elements    xpath=//div[@class="example"]//a[text()]

@@ -11,7 +11,7 @@ Add item to cart
     ${lowercase itemname}=    String.Convert To Lower Case    ${item name}
     ${dash separated itemname}=    String.Replace String    ${lowercase itemname}    ${SPACE}    -
     #the following step is not mandatory, but I like to include it to make it more explicit what happens here
-    ${add item locator}=    BuiltIn.Replace Variables   ${add item to cart by name}
+    ${add item locator}=    BuiltIn.Replace Variables   ${loc add item to cart by name}
     Browser.Click    ${add item locator}
 
 Set sorting
@@ -19,22 +19,36 @@ Set sorting
     Browser.Click    ${sorting dropdown}
     Browser.Click    ${sorting option.${sorting type}}
 
+Select sorting option
+    [Arguments]    ${sorting type}
+    IF    '${sorting type}' == 'az'
+        VAR    ${sorting value}    ${loc sorting option value}[A to Z]
+    ELSE IF    '${sorting type}' == 'za'
+        VAR    ${sorting value}    ${loc sorting option value}[Z to A]
+    ELSE IF    '${sorting type}' == 'lohi'
+        VAR    ${sorting value}    ${loc sorting option value}[price asc]
+    ELSE IF    '${sorting type}' == 'hilo'
+        VAR    ${sorting value}    ${loc sorting option value}[price desc]
+    END
+    Browser.Select Options By    ${loc sorting dropdown}    value    ${sorting value}
+
 Validate sorting
     [Arguments]    ${sorting type}
     @{items}=    BuiltIn.Create List
     IF    '${sorting type}' in ['az', 'za']
-        ${item elements}=    Browser.Get Elements    ${item name label}
+        @{item elements}=    Browser.Get Elements    ${loc item name label}
         FOR    ${element}    IN    @{item elements}
             ${item name}=    Browser.Get Text    ${element}
             ${item name}=    String.Convert To Lower Case    ${item name}
             Collections.Append To List    @{items}    ${item name}
         END
     ELSE IF    '${sorting type}' in ['lohi', 'hilo']
-        ${item elements}=    Browser.Get Elements    ${item price label}
+        @{item elements}=    Browser.Get Elements    ${loc item price label}
         FOR    ${element}    IN    @{item elements}
-            ${item name}=    Browser.Get Text    ${element}
-            ${item name}=    String.Convert To Lower Case    ${item name}
-            Collections.Append To List    @{items}    ${item name}
+            ${item price}=    Browser.Get Text    ${element}
+            ${price}=    String.Replace String    ${item price}    $    ${EMPTY}
+            ${price}=    BuiltIn.Convert To Number   ${price}
+            Collections.Append To List    ${items}    ${price}
         END
     END
     ${actual order items}=    Collections.Copy List    ${items}

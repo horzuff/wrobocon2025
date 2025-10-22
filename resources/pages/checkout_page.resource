@@ -5,15 +5,15 @@ Variables          locators${/}checkout_page.yaml
 *** Keywords ***
 Enter first name
     [Arguments]    ${name}
-    Browser.Fill Text    ${first name input}    ${name}
+    Browser.Fill Text    ${loc first name input}    ${name}
 
 Enter last name
     [Arguments]    ${last name}
-    Browser.Fill Text    ${last name input}    ${last name}
+    Browser.Fill Text    ${loc last name input}    ${last name}
 
 Enter postal code
     [Arguments]    ${code}
-    Browser.Fill Text    ${post code input}   ${code}
+    Browser.Fill Text    ${loc post code input}   ${code}
 
 Fill out shipping info
     [Arguments]    ${first name}    ${last name}    ${post code}
@@ -22,4 +22,4 @@ Fill out shipping info
     Enter postal code    ${post code}
 
 Continue to overview
-    Browser.Click    ${continue button}
+    Browser.Click    ${loc continue button}

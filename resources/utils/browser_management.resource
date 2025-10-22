@@ -5,12 +5,12 @@ Variables          locators${/}login_page.yaml
 
 *** Keywords ***
 Open sauce labs demo site
-    [Arguments]    ${browser}=chromium    ${headless}=True    ${slowMo}=0:00:00.5
+    [Arguments]    ${browser}=chromium    ${headless}=True    ${slowMo}=0:00:01
     ...        ${viewport}={"width": 1920, "height": 1080}    ${url}=https://www.saucedemo.com/
     Set up browser    url=${url}    browser=${browser}    headless=${headless}    slowMo=${slowMo}    viewport=${viewport}
-    Browser.Wait For Elements State    ${username input}    visible    message=username field didn't load correctly
-    Browser.Wait For Elements State    ${password input}    visible
-    Browser.Wait For Elements State    ${login button}    visible
+    Browser.Wait For Elements State    ${loc username input}    visible    message=username field didn't load correctly
+    Browser.Wait For Elements State    ${loc password input}    visible
+    Browser.Wait For Elements State    ${loc login button}    visible
 
 Set up browser
     [Arguments]    ${url}    ${browser}=chromium    ${headless}=True    ${slowMo}=0:00:00.5
