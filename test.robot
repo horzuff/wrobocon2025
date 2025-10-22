@@ -4,7 +4,7 @@ Library            String
 Library            Collections
 
 *** Test Cases ***
-Sauce labs test 1
+Purchasing
     Browser.New Browser    chromium    False    slowMo=0:00:00.5
     Browser.New Context    viewport={"width": 1366, "height": 768}
     Browser.New Page    url=https://www.saucedemo.com/
@@ -33,7 +33,7 @@ Sauce labs test 1
     Browser.Click    id=logout_sidebar_link
     Browser.Close Browser
 
-Sauce Labs test 2
+Sorting
     Browser.New Browser    chromium    False    slowMo=0:00:00.5
     Browser.New Context    viewport={"width": 1366, "height": 768}
     Browser.New Page    url=https://www.saucedemo.com/
