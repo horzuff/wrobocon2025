@@ -1,7 +1,6 @@
 *** Settings ***
 Library            Browser
 Library            OperatingSystem
-Library            Debugger
 Resource           utils\browser_management.resource
 
 *** Test Cases ***
