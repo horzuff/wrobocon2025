@@ -34,10 +34,8 @@ Select sorting option
         VAR    ${sorting value}    ${loc sorting option value}[Z to A]
     ELSE IF    '${sorting type}' == 'lohi'
         VAR    ${sorting value}    ${loc sorting option value}[price asc]
-        BuiltIn.Sleep    1s
     ELSE IF    '${sorting type}' == 'hilo'
         VAR    ${sorting value}    ${loc sorting option value}[price desc]
-        BuiltIn.Sleep    1s
     END
     Browser.Select Options By    ${loc sorting dropdown}    value    ${sorting value}
 
