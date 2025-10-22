@@ -1,6 +1,6 @@
 *** Settings ***
 Library            Browser
-Variables          locators${/}checkout_page.yaml
+Variables          locators\checkout_page.yaml
 
 *** Keywords ***
 Enter first name

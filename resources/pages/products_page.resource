@@ -2,7 +2,7 @@
 Library            Browser
 Library            String
 Library            Collections
-Variables          locators${/}products_page.yaml
+Variables          locators\products_page.yaml
 
 *** Keywords ***
 
