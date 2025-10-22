@@ -1,4 +1,4 @@
---outputdir .\results
---pythonpath .\resources
+--outputdir ./results
+--pythonpath ./resources
 --loglevel TRACE
 tests

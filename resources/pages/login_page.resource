@@ -1,8 +1,8 @@
 *** Settings ***
 Library            Browser
 Library            String
-Variables          locators\login_page.yaml
-Variables          locators\header_area.yaml
+Variables          locators/login_page.yaml
+Variables          locators/header_area.yaml
 
 *** Keywords ***
 Get available logins
@@ -14,6 +14,7 @@ Get available logins
 Get password
     ${password field text}=    Browser.Get Text    ${loc available password field}
     ${password}=    String.Fetch from right   ${password field text}    :
+    ${password}=    String.Strip String    ${password}
     RETURN    ${password}
 
 Login
