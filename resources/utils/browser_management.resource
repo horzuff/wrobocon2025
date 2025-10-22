@@ -1,6 +1,6 @@
 *** Settings ***
 Library            Browser    timeout=20s
-Variables          locators\login_page.yaml
+Variables          locators/login_page.yaml
 
 
 *** Keywords ***
@@ -18,7 +18,7 @@ Set up browser
     Browser.New Browser    ${browser}    ${headless}    slowMo=${slowMo}
     ${har_config}=
         ...    BuiltIn.Create Dictionary
-        ...    path=${OUTPUT_DIR}\har.file
+        ...    path=${OUTPUT_DIR}/har.file
         ...    omitContent=False
     ${vid_config}=
         ...    BuiltIn.Create Dictionary
