@@ -23,6 +23,7 @@ Set up browser
     ${vid_config}=
         ...    BuiltIn.Create Dictionary
         ...    dir=${OUTPUT_DIR}
-    Browser.New Context    viewport=${viewport}    recordHar=${har_config}    recordVideo=${vid_config}
+    Browser.New Context    viewport=${viewport}    recordHar=${har_config}    recordVideo=${vid_config}    tracing=${OUTPUT_DIR}/trace-${TEST_NAME}.zip
+    # the trace file can be viewed with "rfbrowser show-trace /path/to/trace.zip"
     Browser.New Page    url=${url}
     
